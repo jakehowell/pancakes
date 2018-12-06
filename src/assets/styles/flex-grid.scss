@@ -1,0 +1,90 @@
+*[layout-padding] {
+  padding: 8px;
+}
+
+*[layout="row"] {
+  flex-direction: row;
+  @for $i from 1 through 4 {
+    $dimension: 25 * $i;
+    *[flex="#{$dimension}"] {
+      flex: 1 1 unquote('#{$dimension}%');
+      max-width: unquote('#{$dimension}%');
+    }
+  }
+  *[flex="0"] { 
+    flex: 1 1 0;
+  }
+  *[flex="33"] {
+    flex: 1 1 33.33%;
+    max-width: 33.33%;
+  }
+  *[flex="66"] {
+    flex: 1 1 66.66%;
+    max-width: 66.66%;
+  }
+}
+
+*[layout="column"] {
+  flex-direction: column;
+  @for $i from 1 through 4 {
+    $dimension: 25 * $i;
+    *[flex="#{$dimension}"] {
+      flex: 1 1 unquote('#{$dimension}%');
+      max-height: unquote('#{$dimension}%');
+    }
+  }
+  *[flex="0"] { 
+    flex: 1 1 0;
+  }
+  *[flex="33"] {
+    flex: 1 1 33.33%;
+    max-height: 33.33%;
+  }
+  *[flex="66"] {
+    flex: 1 1 66.66%;
+    max-height: 66.66%;
+  }
+}
+
+*[layout-wrap] {
+  flex-wrap: wrap;
+}
+
+*[layout="row"],
+*[layout="column"] {
+  display: flex;
+  &[layout-align^="center"]{
+    justify-content: center;
+  }
+  &[layout-align^="start"]{
+    justify-content: flex-start;
+  }
+  &[layout-align^="end"]{
+    justify-content: flex-end;
+  }
+  &[layout-align^="space-between"]{
+    justify-content: space-between;
+  }
+  &[layout-align^="space-around"]{
+    justify-content: space-around;
+  }
+  &[layout-align^="space-evenly"]{
+    justify-content: space-evenly;
+  }
+  &[layout-align^="stretch"]{
+    justify-content: stretch;
+  }
+
+  &[layout-align$="center"]{
+    align-items: center;
+  }
+  &[layout-align$="start"]{
+    align-items: flex-start;
+  }
+  &[layout-align$="end"]{
+    align-items: flex-end;
+  }
+  &[layout-align$="stretch"]{
+    align-items: stretch;
+  }
+}

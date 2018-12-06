@@ -1,3 +1,18 @@
-<h1>
-  {{title}}
-</h1>
+<div class="app-wrapper" layout="column" layout-align="center center">
+  <h2>Revenge of the Pancakes</h2> 
+  <form class="pancake-form">
+    <div layout="row">
+      <div flex="none">
+        <label>Input</label><br>
+        <textarea [(ngModel)]="stack" name="stack"></textarea>
+      </div>
+      <div flex="none" layout-padding></div>
+      <div flex="none">
+        <label>Output</label><br>
+        <textarea disabled="disabled" [(ngModel)]="output" name="output"></textarea>
+      </div>
+    </div>
+    <br>
+    <button type="submit" (click)="process()">Flip 'em</button>
+  </form>
+</div>
